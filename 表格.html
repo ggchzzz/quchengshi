@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<style>
+    .mytable{
+      border:solid 1px lightblue;
+        border-collapse:collapse;
+        width: 300px;
+        height: 130px;
+
+    }
+    td,th{
+        border:solid 1px lightblue;
+    }
+</style>
+<div id="app"></div>
+</body>
+<script type="text/babel">
+  let  title=["id","name","sex","height","hoby"];
+   let data=[
+       {id:"001",name:"a",sex:"boy",height:'110',hoby:"basketball"},
+       {id:"002",name:"b",sex:"boy",height:'120',hoby:"basketball"},
+       {id:"003",name:"c",sex:"boy",height:'130',hoby:"basketball"},
+       {id:"004",name:"d",sex:"boy",height:'140',hoby:"basketball"},
+       {id:"005",name:"e",sex:"boy",height:'150',hoby:"basketball"},
+   ];
+  let MyTable=React.createClass({
+      render:function () {
+          return <table className="mytable" >
+              <tr>
+                  {
+                      title.map(function (item) {
+                          return <td>{item}</td>
+                      })
+                  }
+              </tr>
+                      {
+                          data.map(function (item) {
+                            return  <tr>  <th>{item.id}</th>
+                                           <th>{item.name}</th>
+                                           <th>{item.sex}</th>
+                                            <th>{item.height}</th>
+                                            <th>{item.hoby}</th>
+                                    </tr>
+                          })
+                      }
+          </table>
+      }
+  })
+   ReactDOM.render(<MyTable/>,document.getElementById("app"))
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script type="text/babel">
+  let Note=React.createClass({
+      render:function () {
+          return <ul>
+              { React.Children.map(this.props.children,function (item) {
+                  return <li>{{item}}</li>
+              })}
+          </ul>
+      }
+  })
+  ReactDOM.render(<note>
+      <span>无边落叶萧萧下</span>
+      <span>不尽长江滚滚滚来</span>
+  </note>,document.getElementById("app"))
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+

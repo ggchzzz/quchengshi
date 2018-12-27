@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script type="text/babel">
+let WebSite=React.createClass({
+    render:function () {
+        return <h2>
+            <Name name={this.props.name}/>
+            <Url url={this.props.url}/>
+        </h2>
+    }
+});
+let Name=React.createClass({
+    render:function () {
+        return <h1>站点名称:{this.props.name}</h1>
+    }
+});
+let Url=React.createClass({
+    render:function () {
+        return　<h2>站点url:{this.props.url}</h2>
+    }
+})
+   ReactDOM.render(<WebSite name="新研科技"　url="www.xinyan.com"/>,document.getElementById("app"))
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+

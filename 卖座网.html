@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <script src="卖座网数据.js"></script>
+</head>
+    <style>
+        html.head{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul,li{
+            list-style-type: none;
+        }
+        body{
+            font-size: 12px;
+            /*background: #000;*/
+        }
+        *{
+            margin:0px;
+            padding: 0px;
+        }
+        .first img{
+            width:100%;
+        }
+        .second img{
+            width: 100%;
+        }
+    </style>
+<body>
+<div id="app"></div>
+</body>
+<script type="text/babel">
+   let MyElem=React.createClass({
+       render:function () {
+           console.log(this.props.firstChild)
+           return <ul>
+                    <FirstChild firstChild={this.props.firstChild}></FirstChild>
+                    正在上映
+                    <SecondChild secondChild={this.props.secondchild}></SecondChild>
+                    </ul>
+       }
+   });
+   let FirstChild=React.createClass({
+             formateTime:function(item){
+           var time=new Date(item);
+           return {mounth:time.getMonth()+1,
+                    day:time.getDate()
+                   };
+
+       },
+       render:function () {
+           console.log(this.props.firstChild)
+           return <li>
+               {
+                   this.props.firstChild.map( (item)=> {
+                       return <div className="first">
+                           <img src={item.cover.origin}/>
+                           <p>{item.name}</p>
+                           console.log(this+"111");
+                           <p>{this.formateTime(item.premiereAt)+"年"+this.formateTime(item.premiereAt).day}</p>
+                            </div>
+                   })
+               }
+           </li>
+       }
+   })
+   let SecondChild=React.createClass({
+       render:function () {
+           return  <li>
+               {
+                   this.props.secondChild.map(function (item) {
+                       return  <div className="second">
+                                    <img src={item.cover.origin}/>
+                                    <p>{item.name}</p>
+                                </div>
+                   })
+               }
+           </li>
+       }
+   })
+   ReactDOM.render(<MyElem　secondchild={nowPlayingArr} firstChild={commingSoonArr}/>,document.getElementById("app"))
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
